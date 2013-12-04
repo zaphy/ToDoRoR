@@ -1,0 +1,19 @@
+<%= simple_form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="padding:15px">
+    <%= f.input :name, :input_html => {:style=> 'display:block; width: 90%'} %>
+    <%= f.button :submit, :class => "btn btn-primary" %>
+  </div>
+
+<% end %>

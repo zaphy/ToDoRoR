@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Author:</b>
+  <%= @task.author %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @task.category_id %>
+</p>
+
+<p>
+  <b>Short text:</b>
+  <%= @task.short_text %>
+</p>
+
+<p>
+  <b>Detailed text:</b>
+  <%= @task.detailed_text %>
+</p>
+
+<p>
+  <b>Deadline:</b>
+  <%= @task.deadline %>
+</p>
+
+<p>
+  <b>Effort estimation:</b>
+  <%= @task.effort_estimation %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

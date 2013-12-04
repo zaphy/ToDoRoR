@@ -1,0 +1,28 @@
+<h1>Users</h1>
+
+  <ul class="sortable list" id="users">
+    <% @users.each do |user| %>
+      <li class="ui-state-default decimal_li" id="user_<%= user.id %>">
+      	<a data-toggle="collapse" href="#collapse_<%= user.id %>">
+          <%= user.name %>
+        </a>
+        <div class="btn-group pull-right">
+        	
+          <%= link_to user, :class => "btn btn-mini" do %><i class="icon-info"></i><% end %>
+          <%= link_to edit_user_path(user), {:class => "btn btn-mini", :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} do %><i class="icon-edit"></i><% end %>
+          <%= link_to user, :remote => true, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-mini" do %><i class="icon-remove"></i><% end %>
+        </div>
+        <div class="pull-right" style="margin-right:5px"><%= user.tasks.count %></div>
+      	<div id="collapse_<%= user.id %>"  class="mainbody panel-collapse collapse">
+          <ul class="list-unstyled">
+            <% user.tasks.all(:order => 'position').each do |task| %>
+              <li class="licsss"><%= link_to task.short_text, task %></li>
+            <% end %>
+          </ul>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  </br>
+
+  <center><%= link_to 'New User', new_user_path, {:class => "btn btn-primary", :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></center>

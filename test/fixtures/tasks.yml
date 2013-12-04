@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  author: MyString
+  category_id: 1
+  short_text: MyString
+  detailed_text: MyString
+  deadline: 2013-11-03
+  effort_estimation: 1.5
+
+two:
+  author: MyString
+  category_id: 1
+  short_text: MyString
+  detailed_text: MyString
+  deadline: 2013-11-03
+  effort_estimation: 1.5

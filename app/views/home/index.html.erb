@@ -1,0 +1,21 @@
+<div class="page-header">
+  <h1>ToDo Lists - Overview</h1>
+</div>
+
+<div class="well"><%= pluralize(User.count, "user") %> <%= User.count == 1 ? 'is':'are' %> in the system.
+  <% if !User.last.nil? %>
+    <br />Last user was <%= time_ago_in_words(User.last.created_at) %> ago created.
+  <% end %>
+</div>
+
+<div class="well"><%= pluralize(Category.count, "category") %> <%= Category.count == 1 ? 'is':'are' %> in the system.
+  <% if !Category.last.nil? %>
+    <br />Last category was <%= time_ago_in_words(Category.last.created_at) %> ago created.
+  <% end %>
+</div>
+
+<div class="well"><%= pluralize(Task.count, "task") %> <%= Task.count == 1 ? 'is':'are' %> in the system.
+  <% if !Task.last.nil? %>
+    <br />Last task was <%= time_ago_in_words(Task.last.created_at) %> ago created.
+  <% end %>
+</div>

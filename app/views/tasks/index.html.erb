@@ -1,0 +1,31 @@
+  <h1>Tasks</h1>
+  <ul class="sortable list" id="tasks">
+    <% @tasks.each do |task| %>
+      <li class="ui-state-default decimal_li" id="task_<%= task.id %>">
+        <a data-toggle="collapse" href="#collapse_<%= task.id %>">
+          <%= task.short_text %>
+        </a>
+        <div class="btn-group pull-right">
+          <!-- <%= link_to task, :class => "btn btn-mini" do %><i class="icon-info-sign"></i><% end %> -->
+          <%= link_to edit_task_path(task), {:class => "btn btn-mini", :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} do %><i class="icon-edit"></i><% end %>
+          <%= link_to task, :remote => true, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-mini" do %><i class="icon-remove"></i><% end %>
+        </div>
+        <div class="pull-right" style="margin-right:5px"><%= task.user.name %></div>
+        <div id="collapse_<%= task.id %>"  class="mainbody panel-collapse collapse">
+          <%= simple_format(task.detailed_text) %>
+          <div id="container">
+            <div class="attribute">Author: <%= task.author %></div>
+            <div class="attribute">Created: <%= task.created_at %></div>
+           <div class="attribute">Deadline: <%= task.deadline %></div>
+           <div class="attribute">Effort: <%= task.effort_estimation %></div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <br />
+
+  <br />
+  <center><%= link_to 'New Task', new_task_path, {:class => "btn btn-primary", :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></center>
+
+

@@ -1,0 +1,15 @@
+<%= simple_form_for(@task) do |f| %>
+
+  <%= f.error_notification %>
+
+  <div style="padding:15px;width:730px">
+    <%= f.input :author, :input_html => {:style=> 'display:block; width: 90%'} %>
+    <%= f.association :user, :input_html => {:style=> 'width: 90%'} %>
+    <%= f.association :category, :input_html => {:style=> 'width: 90%'} %>
+    <%= f.input :short_text, :input_html => {:style=> 'width: 90%'} %>
+    <%= f.input :detailed_text, :as => :text, :input_html => {:rows => 5, :style=> 'width: 90%'} %>
+    <%= f.input :deadline, :as => :date %>
+    <%= f.input :effort_estimation, :input_html => {:style=> 'width: 90%'} %>
+    <%= f.button :submit, :class => "btn btn-primary" %>
+  </div>
+<% end %>
